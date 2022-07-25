@@ -1,0 +1,673 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+@import url(/N+1/fonts/fonts.css);
+
+
+@keyframes a {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 10%, 0)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateZ(0)
+    }
+}
+
+@keyframes b {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateZ(0)
+    }
+}
+
+@keyframes c {
+    0% {
+        width: 0
+    }
+
+    50% {
+        width: 80%
+    }
+
+    80% {
+        width: 45%
+    }
+
+    to {
+        width: 50%
+    }
+}
+
+$headline_gray: #8b8b8b;
+$headerline_yellow: #f6b130;
+$selection_color: #f6b130;
+
+
+@mixin flex_structure {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+@mixin selection_color {
+    color: #fff;
+    background-color: $selection_color;
+}
+
+@mixin button_sh($val1) {
+    background: transparent;
+    border-radius: 3px;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Nunito Sans';
+    font-weight: 700;
+    text-decoration: none;
+    color: $val1;
+    transition: border .3s, color .3s;
+
+    &:hover {
+        border: 1px solid $val1;
+    }
+}
+
+@mixin anim_button($val) {
+    animation-duration: $val;
+    animation-name: a;
+}
+
+@mixin navbar {
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    color: #ffffff75;
+    font-family: 'Nunito Sans';
+}
+
+@mixin flex_structure_col {
+    display: flex;
+    flex-direction: column;
+
+}
+
+html {
+    background: #151515;
+    font-family: 'Nunito Sans';
+    color: #fff;
+    text-align: left;
+}
+
+.header_container {
+    @include flex_structure;
+    height: 115px;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+nav {
+    @include flex_structure;
+
+    a {
+        @include navbar;
+        text-transform: capitalize;
+    }
+
+
+    .nav_links {
+        padding: 16px 20px;
+        transition: color .3s, border .3s;
+
+        &:active,
+        &:hover {
+            color: #fff;
+        }
+
+    }
+
+
+}
+
+.header_logo {
+    height: 35px;
+}
+
+.btn-border {
+    @include button_sh ($selection_color);
+    border: 1px solid #F6B13070;
+
+    &:hover {
+        border: 1px solid $selection_color;
+    }
+
+}
+
+.play_btn {
+    @include button_sh(#fff);
+    border: 1px solid #FFFFFF70;
+
+}
+
+.btn_yellow {
+    @include button_sh ($selection_color);
+    @include anim_button (1.5s);
+    border: 1px solid #F6B13070;
+    margin-left: 20px;
+}
+
+.headline_class {
+    @include flex_structure_col;
+    margin: 120px 0 0;
+    font-size: 95px;
+    text-align: center;
+    line-height: 90px;
+    font-weight: 700;
+    color: #fff;
+
+    .header_gray {
+        color: $headline_gray;
+        font-family: 'Playfair Display';
+
+        &::selection {
+            @include selection_color;
+        }
+    }
+
+    .header_yellow {
+        color: $headerline_yellow;
+        font-family: "Playfair Display";
+
+        &::selection {
+            @include selection_color;
+        }
+    }
+
+    .header_white {
+        font-family: "Playfair Display";
+
+        &::selection {
+            @include selection_color;
+        }
+    }
+
+}
+
+.container {
+    content-visibility: auto;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 20px;
+
+}
+
+.subheader {
+    align-items: center;
+    margin: 45px 60px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: $headline_gray;
+    position: relative;
+    text-transform: uppercase;
+    font-family: "BenchNine";
+}
+
+
+.anim_img {
+    @include anim_button(1.5s);
+}
+
+.anim_h1 {
+    animation-duration: 1s;
+    animation-name: b;
+}
+
+.topimg,
+.topimg__img {
+    width: 100%;
+    max-width: 100%;
+}
+
+.topimg {
+    position: absolute;
+    top: 85px;
+    z-index: 0;
+    display: block;
+}
+
+
+.fb-img {
+    width: 100%;
+    max-width: 380px;
+}
+
+.fbox {
+    background: #1d1d1d;
+    margin: 0 15px 30px;
+    border-bottom: 2px solid #232323;
+    transition: background .5s ease-in-out, border-bottom .5s ease-in-out;
+
+
+    &:hover {
+        background: #262626;
+        fill: #fff;
+        // border-bottom: 2px solid #3a3a3a;
+    }
+}
+
+.fbox--sec {
+    border-bottom: 2px solid #EDA217;
+}
+
+img {
+    border: 0;
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+    border-style: none;
+}
+
+
+
+.flex_content {
+    padding: 10px 35px 55px;
+
+    svg {
+        text-align: left;
+
+        &:hover {
+            fill: #fff;
+        }
+    }
+
+    .fbox__content__top {
+        text-align: left;
+    }
+
+    .flex_headline {
+        font-family: 'Playfair';
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #fff;
+        text-align: left;
+
+        &::selection {
+            background: $selection_color;
+            color: #fff;
+        }
+    }
+
+    .flex_text {
+        line-height: 26px;
+        font-family: 'Nunito Sans';
+        font-size: 16px;
+        line-height: normal;
+        color: #a1a1a1;
+        text-align: left;
+
+        &::selection {
+            background: $selection_color;
+            color: #fff;
+        }
+    }
+
+    &:hover {
+        fill: #fff;
+    }
+
+
+}
+
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+
+    .fbox--small {
+        @include anim_button(1.5s);
+        flex-basis: calc(33.33333% - 30px);
+        height: max-content;
+        text-align: left;
+    }
+
+    .flex-left {
+        display: flex;
+        width: 33.33333%;
+        @include anim_button(1.5s)
+    }
+
+
+    .flex-right {
+        width: 66.66666%;
+        @include anim_button(1.5s);
+
+        .fb-container {
+            display: flex;
+        }
+
+    }
+
+
+}
+
+.fbox__icon {
+    margin: 50px 0 70px;
+    fill: #636364;
+    transition: fill .5s ease-in-out;
+
+    &:hover {
+        fill: #fff;
+    }
+}
+
+
+.line--mt {
+    margin-top: 50px;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background: hsla(0, 0%, 100%, .12);
+}
+
+#compare:before {
+    background: url(/N+1/images/icon-compare.svg) no-repeat scroll 0 transparent;
+    background-size: contain;
+    content: " ";
+    float: right;
+    height: 100%;
+    margin-right: -20px;
+    position: relative;
+    top: 0;
+    width: 40px;
+}
+
+input#slider {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background: transparent;
+    cursor: col-resize;
+    height: 100vw;
+    left: 0;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    position: relative;
+    top: -100vw;
+    width: 100%;
+}
+
+#compare {
+    background-image: url(/N+1/images/template_black.png);
+    bottom: 0;
+    border-right: 2px solid #fff;
+    max-width: 100%;
+    min-width: .6%;
+    overflow: visible;
+    position: absolute;
+    width: 50%;
+}
+
+#compare,
+.container figure {
+    background-size: cover;
+    height: 100%;
+}
+
+.container figure {
+    background-image: url(/N+1/images/template_white.png);
+    font-size: 0;
+    margin: 0;
+    position: relative;
+    width: 100%;
+}
+
+.img_adjust {
+    height: 63vw;
+    margin: 150px auto 30px;
+    max-height: 753px;
+    max-width: 1200px;
+    overflow: hidden;
+    width: calc(100vw - 60px);
+    border-radius: 6px;
+    position: relative;
+
+    #compare.anim_compare {
+        animation: c 3s ease-in-out;
+        animation-name: c;
+    }
+
+    @include anim_button(2.5s);
+
+}
+
+.subheadline {
+    @include anim_button(1s);
+    font-family: "BenchNine";
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 80px;
+    text-transform: uppercase;
+    letter-spacing: 5.3px;
+    text-align: center;
+    line-height: normal;
+    color: #a1a1a1;
+
+    &::selection {
+        background: $selection_color;
+        color: #fff;
+    }
+
+    .anchor {
+        position: relative;
+        top: -50px;
+    }
+
+    .anchor--headline {
+        top: -80px;
+    }
+}
+
+.subheadline_2 {
+    @include anim_button(1.5s);
+    font-family: 'Playfair';
+    font-size: 43px;
+    line-height: 90px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 80px;
+
+    &::selection {
+        background: $selection_color;
+        color: #fff;
+    }
+}
+
+.demo_btn {
+    margin-bottom: 145px;
+    display: flex;
+    justify-content: center;
+
+    button {
+        display: flex;
+        padding: 15px 25px;
+        font-weight: 700;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        background: transparent;
+        cursor: pointer;
+        border: none;
+        transition: border 0.3s, color 0.3s;
+        width: 246px;
+        justify-content: space-evenly;
+
+        &:hover {
+            border: 1px solid #fff;
+        }
+    }
+}
+
+.lazyload {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.lazyload.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+.faq {
+    @include anim_button(1.5s);
+
+
+    .headline-faq {
+        font-family: 'Playfair';
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: #fff;
+        text-align: center;
+        border-top: 1px solid hsla(0, 0%, 100%, .12);
+        padding: 30px 0;
+    }
+
+    .faq-ans {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        padding: 60px 0;
+        justify-content: space-around;
+        animation-duration: 1s;
+        border-top: 1px solid hsla(0, 0%, 100%, .12);
+
+        h3::selection {
+            background: $selection_color;
+            color: #fff;
+        }
+
+        .text-faq {
+            flex-basis: 50%;
+            text-align: left;
+            font-family: 'Nunito Sans';
+            font-size: 16px;
+            line-height: 26px;
+            color: #a1a1a1;
+
+            &::selection {
+                background: $selection_color;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.footer-nav {
+    padding: 15px 0;
+    font-size: 15px;
+    border-bottom: 1px solid #373737;
+    text-align: center;
+    margin-bottom: 35px;
+    display: block;
+
+    &::selection {
+        background: $selection_color;
+        color: #fff;
+    }
+
+    a {
+        padding: 10px 15px;
+        text-decoration: none;
+
+        &::selection {
+            background: $selection_color;
+            color: #fff;
+        }
+    }
+
+    .footer-ink {
+        display: inline-block;
+        font-weight: 800;
+        color: #7c7c7c;
+        text-decoration: none;
+        padding: 22px;
+
+        &::selection {
+            background: $selection_color;
+            color: #fff;
+        }
+    }
+
+    .footer-text {
+        font-size: 13px;
+        margin-bottom: 10px;
+        font-family: 'Nunito Sans';
+        color: #a1a1a1;
+        text-decoration: none;
+
+        &::selection {
+            background: $selection_color;
+            color: #fff;
+        }
+
+    }
+
+
+}
+
+.ref {
+    text-decoration: none;
+    color: #a1a1a1;
+
+
+    &::selection {
+        background: $selection_color;
+        color: #fff;
+    }
+}
+
+.footer-symbol {
+    margin: 60px 0;
+    opacity: .3;
+}
+
+.fbox1 {
+    background: #d2c6db;
+    margin: 0 15px 30px;
+    border-bottom: 2px solid #d2c6db;
+    transition: background .5s ease-in-out, border-bottom .5s ease-in-out;
+
+
+    &:hover {
+        background: #c69de6;
+        fill: #fff;
+    }
+
+    .flex_text {
+        color: #3c3737;
+    }
+}
