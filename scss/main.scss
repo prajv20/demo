@@ -53,7 +53,12 @@
 $headline_gray: #8b8b8b;
 $headerline_yellow: #f6b130;
 $selection_color: #f6b130;
-
+$font_size: 1rem;
+:root {
+    --light_gray: #a1a1a1;
+    --white: #ffffff; 
+  }
+  
 
 @mixin flex_structure {
     display: flex;
@@ -63,7 +68,7 @@ $selection_color: #f6b130;
 
 
 @mixin selection_color {
-    color: #fff;
+    color: var(--white);
     background-color: $selection_color;
 }
 
@@ -72,7 +77,7 @@ $selection_color: #f6b130;
     border-radius: 3px;
     padding: 15px 25px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem + 0.6rem;
     font-family: 'Nunito Sans';
     font-weight: 700;
     text-decoration: none;
@@ -90,7 +95,7 @@ $selection_color: #f6b130;
 }
 
 @mixin navbar {
-    font-size: 15px;
+    font-size: 1.5rem;
     font-weight: 800;
     text-decoration: none;
     color: #ffffff75;
@@ -106,10 +111,13 @@ $selection_color: #f6b130;
 html {
     background: #151515;
     font-family: 'Nunito Sans';
-    color: #fff;
+    color: var(--white);
     text-align: left;
+    font-size: 62.5%
 }
-
+h3{
+    font-size: 1.4rem
+}
 .header_container {
     @include flex_structure;
     height: 115px;
@@ -133,7 +141,7 @@ nav {
 
         &:active,
         &:hover {
-            color: #fff;
+            color: var(--white);
         }
 
     }
@@ -171,11 +179,11 @@ nav {
 .headline_class {
     @include flex_structure_col;
     margin: 120px 0 0;
-    font-size: 95px;
+    font-size: 9rem;
     text-align: center;
     line-height: 90px;
     font-weight: 700;
-    color: #fff;
+    color: var(--white);
 
     .header_gray {
         color: $headline_gray;
@@ -218,12 +226,19 @@ nav {
 .subheader {
     align-items: center;
     margin: 45px 60px;
-    font-size: 22px;
+    font-size: 2.2rem;
     letter-spacing: 2px;
     color: $headline_gray;
     position: relative;
     text-transform: uppercase;
     font-family: "BenchNine";
+    
+    span{
+        &::selection{
+            @include selection_color;
+        }
+    }
+   
 }
 
 
@@ -300,34 +315,32 @@ img {
 
     .flex_headline {
         font-family: 'Playfair';
-        font-size: 28px;
+        font-size: 2.8rem;
         font-weight: 700;
         margin-bottom: 20px;
-        color: #fff;
+        color: var(--white);
         text-align: left;
 
         &::selection {
-            background: $selection_color;
-            color: #fff;
+            @include selection_color;
         }
     }
 
     .flex_text {
         line-height: 26px;
         font-family: 'Nunito Sans';
-        font-size: 16px;
+        font-size: 1.6rem;
         line-height: normal;
-        color: #a1a1a1;
+        color: var(--light_gray);
         text-align: left;
 
         &::selection {
-            background: $selection_color;
-            color: #fff;
+            @include selection_color;
         }
     }
 
     &:hover {
-        fill: #fff;
+        fill: var(--white);
     }
 
 
@@ -463,18 +476,17 @@ input#slider {
 .subheadline {
     @include anim_button(1s);
     font-family: "BenchNine";
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 700;
     margin-top: 80px;
     text-transform: uppercase;
     letter-spacing: 5.3px;
     text-align: center;
     line-height: normal;
-    color: #a1a1a1;
+    color: var(--light_gray);
 
     &::selection {
-        background: $selection_color;
-        color: #fff;
+       @include selection_color;
     }
 
     .anchor {
@@ -490,16 +502,15 @@ input#slider {
 .subheadline_2 {
     @include anim_button(1.5s);
     font-family: 'Playfair';
-    font-size: 43px;
+    font-size: 2rem + 2.3rem;
     line-height: 90px;
     font-weight: 700;
-    color: #fff;
+    color: var(--white);
     text-align: center;
     margin-bottom: 80px;
 
     &::selection {
-        background: $selection_color;
-        color: #fff;
+       @include selection_color;
     }
 }
 
@@ -512,9 +523,9 @@ input#slider {
         display: flex;
         padding: 15px 25px;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 1.6rem;
         text-decoration: none;
-        color: #fff;
+        color: var(--white);
         background: transparent;
         cursor: pointer;
         border: none;
@@ -523,7 +534,7 @@ input#slider {
         justify-content: space-evenly;
 
         &:hover {
-            border: 1px solid #fff;
+            border: 1px solid var(--white);
         }
     }
 }
@@ -547,10 +558,10 @@ input#slider {
 
     .headline-faq {
         font-family: 'Playfair';
-        font-size: 20px;
+        font-size: 1rem + 1rem;
         font-weight: 700;
         margin-bottom: 5px;
-        color: #fff;
+        color: var(--white);
         text-align: center;
         border-top: 1px solid hsla(0, 0%, 100%, .12);
         padding: 30px 0;
@@ -567,20 +578,19 @@ input#slider {
 
         h3::selection {
             background: $selection_color;
-            color: #fff;
+            color: var(--white);
         }
 
         .text-faq {
             flex-basis: 50%;
             text-align: left;
             font-family: 'Nunito Sans';
-            font-size: 16px;
+            font-size: 1rem + 0.6rem;
             line-height: 26px;
-            color: #a1a1a1;
+            color: var(--light_gray);
 
             &::selection {
-                background: $selection_color;
-                color: #fff;
+                @include selection_color;
             }
         }
     }
@@ -588,15 +598,14 @@ input#slider {
 
 .footer-nav {
     padding: 15px 0;
-    font-size: 15px;
+    font-size: 1.5rem;
     border-bottom: 1px solid #373737;
     text-align: center;
     margin-bottom: 35px;
     display: block;
 
     &::selection {
-        background: $selection_color;
-        color: #fff;
+        @include selection_color;
     }
 
     a {
@@ -604,8 +613,7 @@ input#slider {
         text-decoration: none;
 
         &::selection {
-            background: $selection_color;
-            color: #fff;
+            @include selection_color;
         }
     }
 
@@ -617,21 +625,19 @@ input#slider {
         padding: 22px;
 
         &::selection {
-            background: $selection_color;
-            color: #fff;
+            @include selection_color;
         }
     }
 
     .footer-text {
-        font-size: 13px;
+        font-size: 1.3rem;
         margin-bottom: 10px;
         font-family: 'Nunito Sans';
-        color: #a1a1a1;
+        color: var(--light_gray);
         text-decoration: none;
 
         &::selection {
-            background: $selection_color;
-            color: #fff;
+            @include selection_color;
         }
 
     }
@@ -641,12 +647,10 @@ input#slider {
 
 .ref {
     text-decoration: none;
-    color: #a1a1a1;
-
+    color: var(--light_gray);
 
     &::selection {
-        background: $selection_color;
-        color: #fff;
+        @include selection_color;
     }
 }
 
