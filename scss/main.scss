@@ -1,12 +1,13 @@
+@import url(/N+1/fonts/fonts.css);
+@import "color";
+@import "mixin";
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
 }
-
-@import url(/N+1/fonts/fonts.css);
-
 
 @keyframes a {
     0% {
@@ -48,64 +49,6 @@
     to {
         width: 50%
     }
-}
-
-$headline_gray: #8b8b8b;
-$headerline_yellow: #f6b130;
-$selection_color: #f6b130;
-$font_size: 1rem;
-:root {
-    --light_gray: #a1a1a1;
-    --white: #ffffff; 
-  }
-  
-
-@mixin flex_structure {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-
-@mixin selection_color {
-    color: var(--white);
-    background-color: $selection_color;
-}
-
-@mixin button_sh($val1) {
-    background: transparent;
-    border-radius: 3px;
-    padding: 15px 25px;
-    cursor: pointer;
-    font-size: 1rem + 0.6rem;
-    font-family: 'Nunito Sans';
-    font-weight: 700;
-    text-decoration: none;
-    color: $val1;
-    transition: border .3s, color .3s;
-
-    &:hover {
-        border: 1px solid $val1;
-    }
-}
-
-@mixin anim_button($val) {
-    animation-duration: $val;
-    animation-name: a;
-}
-
-@mixin navbar {
-    font-size: 1.5rem;
-    font-weight: 800;
-    text-decoration: none;
-    color: #ffffff75;
-    font-family: 'Nunito Sans';
-}
-
-@mixin flex_structure_col {
-    display: flex;
-    flex-direction: column;
-
 }
 
 html {
@@ -155,7 +98,7 @@ nav {
 
 .btn-border {
     @include button_sh ($selection_color);
-    border: 1px solid #F6B13070;
+    border: 1px solid var(--btn_border);
 
     &:hover {
         border: 1px solid $selection_color;
@@ -165,14 +108,14 @@ nav {
 
 .play_btn {
     @include button_sh(#fff);
-    border: 1px solid #FFFFFF70;
+    border: 1px solid var(--nav_color);
 
 }
 
 .btn_yellow {
     @include button_sh ($selection_color);
     @include anim_button (1.5s);
-    border: 1px solid #F6B13070;
+    border: 1px solid var(--btn_border);
     margin-left: 20px;
 }
 
@@ -271,21 +214,21 @@ nav {
 }
 
 .fbox {
-    background: #1d1d1d;
+    background: var(--page_background);
     margin: 0 15px 30px;
-    border-bottom: 2px solid #232323;
+    border-bottom: 2px solid var(--dark_violet);
     transition: background .5s ease-in-out, border-bottom .5s ease-in-out;
 
 
     &:hover {
-        background: #262626;
-        fill: #fff;
+        background: var(--hover_color);
+        fill: var(--white);
         // border-bottom: 2px solid #3a3a3a;
     }
 }
 
 .fbox--sec {
-    border-bottom: 2px solid #EDA217;
+    border-bottom: 2px solid var(--flexbox_border);
 }
 
 img {
@@ -305,7 +248,7 @@ img {
         text-align: left;
 
         &:hover {
-            fill: #fff;
+            fill: var(--white);
         }
     }
 
@@ -382,11 +325,11 @@ img {
 
 .fbox__icon {
     margin: 50px 0 70px;
-    fill: #636364;
+    fill: var(--dark_gray);
     transition: fill .5s ease-in-out;
 
     &:hover {
-        fill: #fff;
+        fill: var(--white);
     }
 }
 
@@ -432,7 +375,7 @@ input#slider {
 #compare {
     background-image: url(/N+1/images/template_black.png);
     bottom: 0;
-    border-right: 2px solid #fff;
+    border-right: 2px solid var(--white);
     max-width: 100%;
     min-width: .6%;
     overflow: visible;
