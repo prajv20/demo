@@ -1,0 +1,48 @@
+
+@mixin flex_structure {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+@mixin selection_color {
+    color: var(--white);
+    background-color: $selection_color;
+}
+
+@mixin button_sh($val1) {
+    background: transparent;
+    border-radius: 3px;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 1rem + 0.6rem;
+    font-family: 'Nunito Sans';
+    font-weight: 700;
+    text-decoration: none;
+    color: $val1;
+    transition: border .3s, color .3s;
+
+    &:hover {
+        border: 1px solid $val1;
+    }
+}
+
+@mixin anim_button($val) {
+    animation-duration: $val;
+    animation-name: a;
+}
+
+@mixin navbar {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--nav_color);
+    font-family: 'Nunito Sans';
+}
+
+@mixin flex_structure_col {
+    display: flex;
+    flex-direction: column;
+
+}
